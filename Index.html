@@ -1,0 +1,103 @@
+<html lang='en'>
+    <head>
+    <body>
+        <title>STRIVE SCHOOL MODULE 1</title>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    </head>
+    <style>
+        head { background-color: rgb(25, 163, 163);
+        }
+        body {margin: 2;
+        min-width: 250px;
+        background-color: rgb(155, 155, 233);
+        box-sizing: boarder-box;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        ul li {
+            cursor: pointer;
+            position: relative;
+            padding: 12px 8px 12px 40px;
+            list-style-type: none;
+            background: rgb(211, 183, 238);
+            font-size: large;
+            transition: 0.2s;
+        }
+        ul li:nth-child(odd) {
+            background: #f9f9f9;
+        }
+        ul li:hover{
+            background: #ddd
+        }
+        ul li.clicked {
+            background: #888;
+            color: #fff;
+        }
+        .close {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 12px 16px 12px 16px;
+        }
+        .close:hover{ 
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+        <h1>Personal Task List!</h1>
+    <br />
+
+    <span
+      >Add any task you would like to perfom by writing in the specified field and click "Add new task"</span
+    ><br /><br />
+    <div id='myDIV' class='header'>
+    <input type="text" id="newTask" />
+    <input type="button" value="Add new Task" onclick="addNewTask()" />
+    </div>
+    <ul id='myUL'>
+        <li>Have Breakfast</li>
+        <li>Drink coffee</li>
+        <li>Read a book</li>
+    </ul>
+    <script>
+        let myNodelist = document.getElementsByTagName('li');
+        let i;
+        for (i = 0; i < myNodelist.length; i++) {
+            let span=document.createElement('span');
+            let txt=document.createTextNode('\u00D7');
+            span.className = 'close';
+            span.appendChild(txt);
+            myNodelist[i].appendChild(span);
+        }
+        function createElement() {
+            let li=document.createElement('li');
+            let inputValue=document.getElementById('myInput').value;
+            let t=document.createTextNode(inputValue);
+            li.appendChild(t);
+            if (inputValue === '') {
+                alert('Write New Task');
+            } else { document.getElementById('myUL').appendChild(li);
+
+            }
+            document.getElementById('myInput').value='';
+            let span=document.createElement('span');
+            let txt=document.createTextNode('\u00D7');
+            span.className='close'
+            span.appendChild(txt);
+            li.appendChild(span);
+
+            for (i=0; i < close.length; i++) {
+                close[i].onclick = function () {
+                    let div = this.parentElement;
+                    div.style.display = 'none'
+                }
+            }
+
+        }
+
+    </script>
+    </body>
+</html>
